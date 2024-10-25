@@ -2,11 +2,9 @@ from pymongo import MongoClient
 from config_vars import MONGODB_CONNECTION
 
 class HistorialCliente:
-    print("Connecting to MongoDB")
     client = MongoClient(MONGODB_CONNECTION)
     db = client['Gimnasio']
     collection = db['historial_cliente'] 
-    print("Connection established")
 
     @classmethod
     def insertar_historial(cls, _id, id_cliente, fecha_actividad, actividad, duracion):

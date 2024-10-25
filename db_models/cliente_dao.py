@@ -1,7 +1,5 @@
 from pymongo import MongoClient
 from config_vars import MONGODB_CONNECTION
-from rutina_dao import Rutina
-from maquina_dao import Maquina
 
 class Cliente:
     # Conexión a MongoDB y a la colección 'clientes'

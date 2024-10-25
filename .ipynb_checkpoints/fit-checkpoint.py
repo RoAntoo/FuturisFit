@@ -166,7 +166,6 @@ class Fit:
         else:
             print(f"El cliente con ID {id_cliente} no tiene historial registrado.")
 
-
     # Métodos para asignar rutina y máquina a cliente
     @staticmethod
     def asignar_rutina_a_cliente(cliente_id, rutina_id):

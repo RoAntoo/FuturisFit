@@ -2,7 +2,6 @@ from pymongo import MongoClient
 from config_vars import MONGODB_CONNECTION
 
 class Rutina:
-    print("Connecting to MongoDB")
     client = MongoClient(MONGODB_CONNECTION)
     db = client['FuturisFit']
     collection = db['rutinas']
@@ -30,6 +29,9 @@ class Rutina:
         except Exception as e:
             print(f"Error al insertar rutina: {e}")
             return None
+
+
+    
 
     @classmethod
     def consultar_rutina_por_id(cls, _id):
@@ -76,6 +78,29 @@ class Rutina:
             print(f"Error al actualizar rutina: {e}")
             return None
 
+    @classmethod
+    def insertar_varias_rutinas(cls, rutinas):
+        """
+        Agregar varias rutinas a la colección.
+        :param rutinas: lista de diccionarios, cada uno representando una rutina.
+        :return: número de rutinas insertadas.
+        """
+        if not rutinas or not all(['id_cliente' in r and 'nombre_rutina' in r for r in rutinas]):
+            print("Error: Todos los campos son obligatorios.")
+            return 0
+    
+        insertados = 0
+        for rutina_data in rutinas:
+            try:
+                result = cls.collection.insert_one(rutina_data)
+                insertados += 1
+            except Exception as e:
+                print(f"Error al insertar rutina: {e}")
+        
+        return insertados
+
+    
+    
     @classmethod
     def eliminar_rutina(cls, _id):
         """
