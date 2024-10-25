@@ -124,18 +124,18 @@ class Fit:
         Maquina.insertar_maquina(_id, nombre, tipo, estado, ubicacion, fecha_mantenimiento)
         print(f"Máquina {_id} registrada exitosamente.")
 
-    @staticmethod
-    def actualizar_estado_maquina(_id, estado):
-        """Actualizar el estado de una máquina (Disponible, Ocupada, Mantenimiento) con validación."""
-        if not Maquina.consultar_maquina_por_id(_id):
-            print(f"Error: No se encontró la máquina con ID {_id}.")
-            return
+@staticmethod
+def actualizar_datos_maquina(_id, nombre=None, tipo=None, ubicacion=None, fecha_mantenimiento=None):
+    """Actualizar los datos de una máquina con validación."""
+    if not Maquina.consultar_maquina_por_id(_id):
+        print(f"Error: No se encontró la máquina con ID {_id}.")
+        return
 
-        resultado = Maquina.actualizar_maquina(_id, estado=estado)
-        if resultado:
-            print(f"Estado de la máquina {_id} actualizado a {estado}.")
-        else:
-            print("Error al actualizar el estado de la máquina.")
+    resultado = Maquina.actualizar_maquina(_id, nombre=nombre, tipo=tipo, ubicacion=ubicacion, fecha_mantenimiento=fecha_mantenimiento)
+    if resultado:
+        print(f"Datos de la máquina {_id} actualizados.")
+    else:
+        print("Error al actualizar los datos de la máquina.")
 
     # Operaciones sobre historial de actividades
     @staticmethod
