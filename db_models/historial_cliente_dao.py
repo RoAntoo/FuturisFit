@@ -11,6 +11,7 @@ class HistorialCliente:
         """
         Agregar un nuevo historial de cliente a la colección.
         """
+        
         historial_data = {
             "_id": _id,
             "ID_Cliente": id_cliente,
@@ -18,6 +19,7 @@ class HistorialCliente:
             "actividad": actividad,
             "duracion": duracion
         }
+        
         return cls.collection.insert_one(historial_data)
 
     @classmethod
