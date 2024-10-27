@@ -34,4 +34,4 @@ After setting up the environment, you can start creating your DAO classes for ma
 Remember to activate your virtual environment whenever you work on the project to ensure all dependencies are correctly loaded.
 
 
-Integrantes: Chavez, Joaquin - Oliva, Daniela - Ramaccioni, Rocio
+**Integrantes**: Chavez, Joaquin - Oliva, Daniela - Ramaccioni, Rocio
